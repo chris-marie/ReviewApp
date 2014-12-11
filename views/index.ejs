@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>EComm</title>
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script>
+    // making an ajax call to the backend, searching for the data
+
+    $(function () {
+      console.log('test');
+      $('#query').change(function () {
+        console.log(this.value);
+
+        $.get('/countries/' + this.value, function (data) {
+          for (var i = 0, len = data.country.languages.length; i < len; i++) {
+            console.log(JSON.stringify(data.country.languages[i]));
+          }
+
+        });
+
+      });
+    });
+
+  </script>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">Category 1</a></li>
+      <li><a href="">Category 2</a></li>
+    </ul>
+  </nav>
+</header>
+<section>
+  <div class="search">
+    <input type="text" id="query" placeholder="search for items"/>
+  </div>
+  <div class="offers">
+
+  </div>
+  <div>
+
+  </div>
+</section>
+<footer>
+  &copy; &lt;your name&gt; 2014
+</footer>
+</body>
+</html>
